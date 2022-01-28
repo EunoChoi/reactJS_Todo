@@ -1,0 +1,65 @@
+.insertBackground{
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top:0px;
+    left:0px;
+
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.7);
+}
+
+
+.inputBox{
+    position: fixed;
+    left: 10vw;
+    top:40vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 990;
+
+    background-color: whitesmoke;
+    width: 80vw;
+    height: 20vh;
+    border-radius: 30px;
+}
+.inputBox form{
+    position: absolute;
+    z-index: 990;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inputBox input{
+    outline: none;
+    background : none;
+    border: none;
+
+    width: 80vw;
+    height: 10vh;
+
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: steelblue;
+}
+.inputBox button{
+    border : none;
+    width: 80vw;
+    height: 10vh;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+    font-size: 1.5em;
+    font-weight: 600;
+    color: whitesmoke;
+    background-color: steelblue;
+}

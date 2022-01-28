@@ -1,0 +1,8 @@
+.listItem{
+    font-size: 1.5em;
+}
+.checked{
+    text-decoration: line-through;
+    text-decoration-color: tomato;
+    text-decoration-line: 10px;
+}

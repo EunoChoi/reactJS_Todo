@@ -1,43 +1,36 @@
 import { useState } from "react/cjs/react.development";
+import '../component/InsertTodo.css';
 
 const InsertTodo = (props) => {
 
 
-    const [Num, setNumber] = useState(0);
-    //const [todos, setTodos] = useState({ text: [], checked: [] });
-    const [insertState, setInsertState] = useState(false);
     const [input, setInput] = useState('');
-
-
-    //click 'plus button fucntion'
-    const onClick = () => {
-        setInsertState(insertState ? false : true);
-    };
     //change 'input box text change'
     const onChange = (event) => {
         setInput(event.target.value);
     };
-
-
     //click submit button
     const onSubmit = (event) => {
         event.preventDefault();
-        props.setTodos((current) => [...current, { id: Num, text: input, checked: false }]);
-        setNumber(current => current + 1);
-        setInput('');
+        if (input !== '') {
+            props.setTodos((current) => [...current, { text: input, checked: false }]);
+            props.onToggle();
+            setInput('');
+        }
     };
 
 
     //render
     return (
         <>
-            <button onClick={onClick}>➕</button>
-            {insertState ? (
+            {console.log('InsertTodo')}
+            <div className="insertBackground" onClick={props.onToggle}></div>
+            <div className="inputBox">
                 <form>
                     <input onChange={onChange} value={input} />
-                    <button onClick={onSubmit} type="submit">Add</button>
+                    <button onClick={onSubmit} type="submit">Add Todo</button>
                 </form>
-            ) : null}
+            </div>
         </>
     );
 };
@@ -45,35 +38,6 @@ const InsertTodo = (props) => {
 export default InsertTodo;
 
 /*
-
-    //click plus button
-    const onClick = () => {
-        setInsertState(insertState ? false : true);
-    };
-
-    //change input box text
-    const onChange = (event) => {
-        setInput(event.target.value);
-    };
-
-    //click submit button
-    const onSubmit = (event) => {
-        event.preventDefault();
-        todos.setTodos((current) => [...current, { id: Num, text: input, checked: false }]);
-        setNumber(current => current + 1);
-        setInput('');
-    };
-
-
-    return (
-        <>
-            <button onClick={onClick}>➕</button>
-            {insertState ? (
-                <form>
-                    <input onChange={onChange} value={input} />
-                    <button onClick={onSubmit} type="submit">Add</button>
-                </form>
-            ) : null}
-        </>
-    );
+               
+ 
 */
