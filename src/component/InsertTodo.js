@@ -27,7 +27,7 @@ const InsertTodo = (props) => {
             <div className="insertBackground" onClick={props.onToggle}></div>
             <div className="inputBox">
                 <form>
-                    <input onChange={onChange} value={input} />
+                    <input autoFocus onChange={onChange} value={input} />
                     <button onClick={onSubmit} type="submit">Add Todo</button>
                 </form>
             </div>

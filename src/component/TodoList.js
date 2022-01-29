@@ -1,6 +1,14 @@
+import { useState } from 'react';
+import InsertTodo from './InsertTodo.js';
 import '../component/TodoList.css';
 
 const TodoList = (props) => {
+
+    const [toggle, setToggle] = useState(false);
+    //click 'toggle button fucntion'
+    const onToggle = () => {
+        setToggle((current) => !current);
+    };
 
     //component의 index로 component의 id를 정해주기 때문에 
     //클릭한 component 값들이 저장된 todos에서 id값과 같은 index 자리의 값을 삭제한다
@@ -20,46 +28,23 @@ const TodoList = (props) => {
     return (
         <>
             {console.log('TodoList')}
-            <hr />
-            <ul>
-                {props.todos.map((todo, index) => (
-                    <div className='listItem' key={index}>
-                        <span className={todo.checked ? "checked" : null} onClick={checkItem} id={index} key={`text${index}`}>{todo.text}</span>
-                        <button onClick={deleteItem} id={index} key={`delbtn${index}`}>X</button>
-                    </div>))}
-            </ul>
-            <hr />
+
+            {props.todos.map((todo, index) => (
+                <div className='listItem' key={index}>
+                    <span className={todo.checked ? "checked" : null} onClick={checkItem} id={index} key={`text${index}`}>{todo.text}</span>
+                    <button onClick={deleteItem} id={index} key={`delbtn${index}`}>X</button>
+                </div>))}
+
+            <button className='toggleBtn' onClick={onToggle}>➕</button>
+
+
+            {toggle ? <InsertTodo
+                onToggle={onToggle}
+                todos={props.todos}
+                setTodos={props.setTodos} /> : null}
         </>
     );
 };
 
 
 export default TodoList;
-
-/*
-
-{todos.map((item, index) =>
-                    <li>
-                        {item.text}
-                    </li>)}
-                    
-
-
-                    <hr />
-            <ul>
-                {todos.map((todo, index) =>
-                (<li onClick={() => {
-                    let temp = todos;
-                    temp = temp.filter((item) => (item.id) !== index ? item : null);
-                    console.log(temp);
-                    todos.setTodos('');
-                }} key={index}>
-                    {todo.id + 1} - {todo.text}-{todo.checked ? 'O' : 'X'}
-                </li>)
-                )}
-
-            </ul>
-            <hr />
-                    
-                
-*/ 
