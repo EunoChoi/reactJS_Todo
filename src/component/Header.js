@@ -10,7 +10,7 @@ const Header = ({ titleSelection, setTitleSelection }) => {
     return (<header>
         <div className='title'>Check It!</div>
         <div className='subTitle'>
-            <div className={`subTitle__todo ${titleSelection ? 'selected' : 'unSelected'}`}
+            <div className={`subTitle__todo ${titleSelection ? 'selected_' : 'unSelected'}`}
                 onClick={todoSelect}>Todo</div>
             <div className={`subTitle__habit ${!titleSelection ? 'selected' : 'unSelected'}`}
                 onClick={habitSelect}>Habit</div>

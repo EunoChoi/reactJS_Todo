@@ -1,11 +1,22 @@
 import { useState } from 'react';
+
+import View from './View';
 import '../css/TodoItem.css';
 
 const TodoItem = (props) => {
+    const [viewToggle, setViewToggle] = useState(false);
+    const [viewText, setViewText] = useState('');
     const [checked, setChecked] = useState(false);
 
     const onChecked = () => {
         setChecked((current) => !current);
+    }
+    const onViewClick = (event) => {
+        setViewText(props.todos[event.currentTarget.id].text);
+        setViewToggle(current => !current);
+    }
+    const onViewToggle = () => {
+        setViewToggle(current => !current);
     }
     const deleteTodo = (event) => {
 
@@ -23,14 +34,20 @@ const TodoItem = (props) => {
         props.setTodos([...temp]);
     };
 
-    console.log(props.item);
     return (
-        <div className={props.item.checked ? 'item checked' : 'item'}>
-            <span>{props.index + 1}.</span>
-            <span>{props.item.text}</span>
-            <i id={props.index} onClick={checkTodo} className={!checked ? 'far fa-check-circle' : 'fas fa-check-circle'}></i>
-            <i id={props.index} onClick={deleteTodo} className="fas fa-times-circle"></i>
-        </div>
+        <>
+            {viewToggle ? <View
+                text={viewText}
+                setViewToggle={onViewToggle}
+            /> : null}
+            <div className={props.item.checked ? 'item checked' : 'item'}>
+                <span>{props.index + 1}.</span>
+                <span id={props.index} onClick={onViewClick}>{props.item.text}</span>
+                <i id={props.index} onClick={checkTodo} className={!checked ? 'far fa-check-circle' : 'fas fa-check-circle'}></i>
+                <i id={props.index} onClick={deleteTodo} className="fas fa-times-circle"></i>
+            </div>
+        </>
+
     )
 }
 

@@ -1,0 +1,52 @@
+.viewBackground{
+    z-index: 990;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: black;
+    opacity: 0.5;
+}
+.viewText{
+    line-height: 1.5em;
+    overflow-y: scroll;
+    z-index: 990;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+
+    font-size: 1.3em;
+
+    top : 25vh;
+    left : 10vw;
+
+    width: 80vw;
+    height: 50vh;
+
+    padding : 20px;
+    box-sizing: border-box;
+
+    border-radius: 30px;
+    background-color: white;
+    border: 10px solid steelblue;
+}
+
+.closeBtn{
+    position: fixed;
+
+    z-index: 1000;
+    bottom : 30vh;
+    right : 15vw;
+
+    background-color: none;
+
+    color: salmon;
+
+    font-size: 60px;
+
+    background-color: white;
+    border-radius: 60px;
+}
