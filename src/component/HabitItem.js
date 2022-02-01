@@ -28,7 +28,7 @@ const HabitItem = (props) => {
     return (
         <div className={props.item.checked ? 'habitItem checked' : 'habitItem'}>
             <span>{props.index + 1}.</span>
-            <span>{props.item.text} - {props.item.count}</span>
+            <span>{props.item.text} - [{props.item.count}]</span>
             <i id={props.index} onClick={onCountUp} className="far fa-arrow-alt-circle-up up"></i>
             <i id={props.index} onClick={onCountDown} className="far fa-arrow-alt-circle-down down"></i>
             <i id={props.index} onClick={deleteHabit} className="fas fa-times-circle delete"></i>
