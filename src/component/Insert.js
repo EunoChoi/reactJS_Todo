@@ -17,10 +17,7 @@ const Insert = (props) => {
                 props.setTodos((current) => [...current, { text: input, checked: false }]);
             }
             else {
-                console.log('habit');
-                props.setHabits((current) => [...current, { text: input, checked: false }]);
-                console.log('habit2');
-
+                props.setHabits((current) => [...current, { text: input, checked: false, count: 0 }]);
             }
 
             props.onToggle();
