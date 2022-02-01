@@ -1,7 +1,7 @@
 import { useState } from "react/cjs/react.development";
-import '../component/InsertTodo.css';
+import '../css/Insert.css';
 
-const InsertTodo = (props) => {
+const Insert = (props) => {
 
 
     const [input, setInput] = useState('');
@@ -13,7 +13,16 @@ const InsertTodo = (props) => {
     const onSubmit = (event) => {
         event.preventDefault();
         if (input !== '') {
-            props.setTodos((current) => [...current, { text: input, checked: false }]);
+            if (props.titleSelection === true) {
+                props.setTodos((current) => [...current, { text: input, checked: false }]);
+            }
+            else {
+                console.log('habit');
+                props.setHabits((current) => [...current, { text: input, checked: false }]);
+                console.log('habit2');
+
+            }
+
             props.onToggle();
             setInput('');
         }
@@ -23,7 +32,7 @@ const InsertTodo = (props) => {
     //render
     return (
         <>
-            {console.log('InsertTodo')}
+            {console.log('Insert')}
             <div className="insertBackground" onClick={props.onToggle}></div>
             <div className="inputBox">
                 <form>
@@ -35,7 +44,7 @@ const InsertTodo = (props) => {
     );
 };
 
-export default InsertTodo;
+export default Insert;
 
 /*
                

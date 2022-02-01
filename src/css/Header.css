@@ -1,0 +1,50 @@
+
+header{
+    position: fixed;
+    top: 0px;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    font-size: 35px;
+
+    height: 10vh;
+
+    background-color: steelblue;
+    color: white;
+
+    font-weight: 800;
+
+}
+.subTitle{
+    display: flex;
+    justify-content: space-around;
+    margin: 0px;
+
+    height: 6vh;
+    width: 100vw;
+
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+}
+.subTitle div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50vw;
+}
+.selected{
+    font-weight: 800;
+
+    text-decoration-line: underline;
+    background-color: white;
+    color: salmon;
+}
+.unSelected{
+    background-color: lightsteelblue;
+    color: white;
+}

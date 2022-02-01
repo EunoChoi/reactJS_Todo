@@ -1,24 +1,21 @@
 import { useState } from 'react';
-import TodoList from './component/TodoList.js';
-
+import List from './component/List.js';
+import Header from './component/Header.js';
 //css
-import './App.css';
+import './css/App.css';
 
 function App() {
-
-  const [todos, setTodos] = useState([]);
   const [titleSelection, setTitleSelection] = useState(true);
+  const [todos, setTodos] = useState([]);
+  const [habits, setHabits] = useState([]);
 
   const onTodos = (value) => {
     console.log(todos);
     setTodos(value);
   };
-
-  const todoSelect = () => {
-    setTitleSelection(true);
-  };
-  const habitSelect = () => {
-    setTitleSelection(false);
+  const onHabits = (value) => {
+    console.log(habits);
+    setHabits(value);
   };
 
   return (
@@ -26,23 +23,17 @@ function App() {
       {
         console.log('app')
       }
-      <h1 className='title'>Check It!</h1>
-      <div className='subTitle'>
-        <span className={`subTitle__todo ${titleSelection ? 'selected' : 'unSelected'}`}
-          onClick={todoSelect}>Todo</span>
-        <span className={`subTitle__habit ${!titleSelection ? 'selected' : 'unSelected'}`}
-          onClick={habitSelect}>Habit</span>
-      </div>
+      <Header
+        titleSelection={titleSelection}
+        setTitleSelection={(value) => setTitleSelection(value)} />
 
-      {titleSelection ?
-        <TodoList
-          todos={todos}
-          setTodos={onTodos} /> :
-        <div>
-          <h4>habit list</h4>
-          <button className='toggleBtn'>➕</button>
-        </div>
-      }
+
+      <List
+        todos={todos}
+        setTodos={onTodos}
+        habits={habits}
+        setHabits={onHabits}
+        titleSelection={titleSelection} />
 
 
     </div>
